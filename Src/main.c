@@ -50,10 +50,10 @@ int main(void)
   SystemClock_Config();
   /* Initialize all configured peripherals */
   LED_Init();
-  MX_UART5_Init(115200);
+  Debug_UART5_Init(115200);
 //	KEY_Init();
 	DXLMotor_Init(1000000);
-	MX_UART4_Init(115200);
+	USB2UART_Init(115200);
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	
@@ -67,8 +67,8 @@ int main(void)
     /* USER CODE END WHILE */
 //		HAL_UART_Transmit(&huart5,test,8,1000);
 //		while(__HAL_UART_GET_FLAG(&huart5,UART_FLAG_TC) != SET);
-		HAL_UART_Transmit(&huart4,test,5,1000);
-		while(__HAL_UART_GET_FLAG(&huart4,UART_FLAG_TC) != SET);
+//		HAL_UART_Transmit(&huart4,test,5,1000);
+//		while(__HAL_UART_GET_FLAG(&huart4,UART_FLAG_TC) != SET);
 		HAL_Delay(2000);
 //		DXL_SendData(&test,1);
 		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14|GPIO_PIN_15);

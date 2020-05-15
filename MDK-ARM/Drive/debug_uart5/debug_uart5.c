@@ -9,7 +9,7 @@ UART_HandleTypeDef huart5;
   * @param baud
   * @retval None
   */
-void MX_UART5_Init(unsigned int baud)
+void Debug_UART5_Init(unsigned int baud)
 {
   huart5.Instance = UART5;
   huart5.Init.BaudRate = baud;

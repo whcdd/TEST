@@ -10,7 +10,7 @@
 extern UART_HandleTypeDef huart4;
 extern u8 USB2UART_aRxBuffer[USB2UART_RXBUFFSIZE];
 
-void MX_UART4_Init(u32 baud);
+void USB2UART_Init(u32 baud);
 void USB2UART_SendData(u8 *databuf, u8 len);
 
 #endif

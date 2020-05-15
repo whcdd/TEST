@@ -212,7 +212,6 @@ void USART1_IRQHandler(void)
   /* USER CODE END USART1_IRQn 0 */
   HAL_UART_IRQHandler(&huart1);
   /* USER CODE BEGIN USART1_IRQn 1 */
-	HAL_UART_Receive_IT(&huart1,DXL_aRxBuffer,DXL_RXBUFFSIZE);
   /* USER CODE END USART1_IRQn 1 */
 }
 
@@ -226,7 +225,6 @@ void UART4_IRQHandler(void)
   /* USER CODE END UART4_IRQn 0 */
   HAL_UART_IRQHandler(&huart4);
   /* USER CODE BEGIN UART4_IRQn 1 */
-  HAL_UART_Receive_IT(&huart4,USB2UART_aRxBuffer,USB2UART_RXBUFFSIZE);
   /* USER CODE END UART4_IRQn 1 */
 }
 
@@ -240,8 +238,6 @@ void UART5_IRQHandler(void)
   /* USER CODE END UART5_IRQn 0 */
   HAL_UART_IRQHandler(&huart5);
   /* USER CODE BEGIN UART5_IRQn 1 */
-//	while(HAL_UART_GetState(&huart5)!=HAL_UART_STATE_READY){}
-  HAL_UART_Receive_IT(&huart5,aRxBuffer,RXBUFFSIZE);
   /* USER CODE END UART5_IRQn 1 */
 }
 

@@ -8,11 +8,11 @@ u8 USB2UART_aRxBuffer[USB2UART_RXBUFFSIZE] = {0};
 
 
 /**
-  * @brief UART4 Initialization Function
-  * @param None
+  * @brief USB2UART UART4 Initialization Function
+  * @param baud
   * @retval None
   */
-void MX_UART4_Init(u32 baud)
+void USB2UART_Init(u32 baud)
 {
 
   /* USER CODE BEGIN UART4_Init 0 */

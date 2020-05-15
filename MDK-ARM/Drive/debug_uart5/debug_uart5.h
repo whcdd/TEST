@@ -9,7 +9,7 @@
 extern unsigned char aRxBuffer[RXBUFFSIZE];
 extern UART_HandleTypeDef huart5;
 
-void MX_UART5_Init(unsigned int baud);
+void Debug_UART5_Init(unsigned int baud);
 
 
 #endif

@@ -12,7 +12,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 				unsigned char ch[2] = {'O','K'};
 				HAL_UART_Transmit(huart,ch,2,1000);
 				while(__HAL_UART_GET_FLAG(&huart5,UART_FLAG_TC) != SET);
-				return;
+				
+				HAL_UART_Receive_IT(&huart5,aRxBuffer,RXBUFFSIZE);
 	  }
 		/* usart1 DXL */
 		if(huart->Instance == USART1)
@@ -24,7 +25,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 			  DXL_SendData(DXL_aRxBuffer,DXL_RXBUFFSIZE);
 			  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14|GPIO_PIN_15);
 //			  DXL_ReceiveData();
-			  return;
+			
+				HAL_UART_Receive_IT(&huart1,DXL_aRxBuffer,DXL_RXBUFFSIZE);
 		}
 		/*  USB2UART  */
 		if(huart->Instance == UART4)
@@ -33,6 +35,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 			  USB2UART_SendData(USB2UART_aRxBuffer,USB2UART_RXBUFFSIZE);
 //			  USB2UART_SendData("\r\n",2);
 			  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14|GPIO_PIN_15);
+			
+			  HAL_UART_Receive_IT(&huart4,USB2UART_aRxBuffer,USB2UART_RXBUFFSIZE);
 		}
 		
 }
