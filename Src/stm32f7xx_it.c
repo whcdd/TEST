@@ -216,7 +216,7 @@ void USART1_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles UART4 global interrupt.
+  * @brief This function handles UART4 global interrupt.   USB2UART
   */
 void UART4_IRQHandler(void)
 {

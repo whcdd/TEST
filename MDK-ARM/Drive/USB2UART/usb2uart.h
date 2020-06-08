@@ -4,7 +4,7 @@
 #include "config.h"
 
 
-#define USB2UART_RXBUFFSIZE 1
+#define USB2UART_RXBUFFSIZE 100
 
 /* External variables --------------------------------------------------------*/
 extern UART_HandleTypeDef huart4;

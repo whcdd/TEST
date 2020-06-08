@@ -1,5 +1,6 @@
 #include "config.h"
 
+u8 usb2uart_flag=0;
 
 /* UART interrupt function */
 
@@ -31,10 +32,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 		/*  USB2UART  */
 		if(huart->Instance == UART4)
 		{
+				usb2uart_flag = 1;
 //		    USB2UART_SendData(test,4);
-			  USB2UART_SendData(USB2UART_aRxBuffer,USB2UART_RXBUFFSIZE);
 //			  USB2UART_SendData("\r\n",2);
-			  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14|GPIO_PIN_15);
+//			  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14|GPIO_PIN_15);
 			
 			  HAL_UART_Receive_IT(&huart4,USB2UART_aRxBuffer,USB2UART_RXBUFFSIZE);
 		}
@@ -42,9 +43,15 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 }
 
 
+void CacheEnalble(void)
+{
+  /* Enable I-Cache---------------------------------------------------------*/
+  SCB_EnableICache();
 
-
-
+  /* Enable D-Cache---------------------------------------------------------*/
+  SCB_EnableDCache();
+	SCB->CACR|=1<<2;
+}
 
 
 /**
