@@ -10,6 +10,7 @@
 ".\test\dynamixelmotor.o"
 ".\test\config.o"
 ".\test\usb2uart.o"
+".\test\mti_630.o"
 ".\test\stm32f7xx_hal_cortex.o"
 ".\test\stm32f7xx_hal_tim.o"
 ".\test\stm32f7xx_hal_tim_ex.o"

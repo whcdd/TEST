@@ -31,3 +31,14 @@
 .\test\stm32f7xx_hal_msp.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h
 .\test\stm32f7xx_hal_msp.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h
 .\test\stm32f7xx_hal_msp.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_ex.h
+.\test\stm32f7xx_hal_msp.o: .\Drive\config\config.h
+.\test\stm32f7xx_hal_msp.o: .\Drive\sys\clock_init.h
+.\test\stm32f7xx_hal_msp.o: .\Drive\config\config.h
+.\test\stm32f7xx_hal_msp.o: .\Drive\debug_uart5\debug_uart5.h
+.\test\stm32f7xx_hal_msp.o: .\Drive\led\led.h
+.\test\stm32f7xx_hal_msp.o: .\Drive\key\key.h
+.\test\stm32f7xx_hal_msp.o: .\Drive\motor\DynamixelMotor.h
+.\test\stm32f7xx_hal_msp.o: D:\KEIL5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\test\stm32f7xx_hal_msp.o: D:\KEIL5\ARM\ARMCC\Bin\..\include\string.h
+.\test\stm32f7xx_hal_msp.o: .\Drive\USB2UART\usb2uart.h
+.\test\stm32f7xx_hal_msp.o: .\Drive\IMU\MTi_630.h

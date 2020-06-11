@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F767xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;../Drivers/STM32F7xx_HAL_Driver/Inc;../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F7xx/Include;../Drivers/CMSIS/Include;.\Drive;.\Drive\sys;.\Drive\debug_uart5;.\Drive\led;.\Drive\key;.\Drive\motor;.\Drive\config;.\Drive\USB2UART</IncludePath>
+              <IncludePath>../Inc;../Drivers/STM32F7xx_HAL_Driver/Inc;../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F7xx/Include;../Drivers/CMSIS/Include;.\Drive;.\Drive\sys;.\Drive\debug_uart5;.\Drive\led;.\Drive\key;.\Drive\motor;.\Drive\config;.\Drive\USB2UART;.\Drive\IMU</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -441,6 +441,11 @@
               <FileName>usb2uart.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Drive\USB2UART\usb2uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>MTi_630.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drive\IMU\MTi_630.c</FilePath>
             </File>
           </Files>
         </Group>

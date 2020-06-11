@@ -41,3 +41,4 @@
 .\test\main.o: D:\KEIL5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\test\main.o: D:\KEIL5\ARM\ARMCC\Bin\..\include\string.h
 .\test\main.o: .\Drive\USB2UART\usb2uart.h
+.\test\main.o: .\Drive\IMU\MTi_630.h

@@ -41,3 +41,4 @@
 .\test\config.o: D:\KEIL5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\test\config.o: D:\KEIL5\ARM\ARMCC\Bin\..\include\string.h
 .\test\config.o: .\Drive\USB2UART\usb2uart.h
+.\test\config.o: .\Drive\IMU\MTi_630.h

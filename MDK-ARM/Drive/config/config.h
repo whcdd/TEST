@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "usb2uart.h"
+#include "MTi_630.h"
 
 
 extern u8 usb2uart_flag;

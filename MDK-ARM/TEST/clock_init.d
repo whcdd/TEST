@@ -42,3 +42,4 @@
 .\test\clock_init.o: D:\KEIL5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\test\clock_init.o: D:\KEIL5\ARM\ARMCC\Bin\..\include\string.h
 .\test\clock_init.o: .\Drive\USB2UART\usb2uart.h
+.\test\clock_init.o: .\Drive\IMU\MTi_630.h

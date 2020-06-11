@@ -4,7 +4,7 @@
 /* External variables ---------------------------------------------------------*/
 UART_HandleTypeDef huart4;
 u8 USB2UART_aRxBuffer[USB2UART_RXBUFFSIZE] = {0};
-
+DMA_HandleTypeDef hdma_usart4_tx;
 
 
 /**
@@ -37,6 +37,7 @@ void USB2UART_Init(u32 baud)
     Error_Handler();
   }
   /* USER CODE BEGIN UART4_Init 2 */
+//		__HAL_UART_ENABLE_IT(&huart4,UART_IT_RXNE);
   HAL_UART_Receive_IT(&huart4,USB2UART_aRxBuffer,USB2UART_RXBUFFSIZE);
   /* USER CODE END UART4_Init 2 */
 
@@ -55,3 +56,51 @@ void USB2UART_SendData(u8 *databuf, u8 len)
 	  while(__HAL_UART_GET_FLAG(&huart4,UART_FLAG_TC) != SET);
 }
 
+/**
+  * @brief USART4 DMA Initialization Function
+  * @param NONE
+  * @retval None
+  */
+void USB2UART_DMA_Init(void) 
+{
+
+  /* DMA controller clock enable */
+		__HAL_RCC_DMA1_CLK_ENABLE();
+			/* USART4 DMA Init */
+    /* USART4_TX Init */
+    hdma_usart4_tx.Instance = DMA1_Stream6;
+    hdma_usart4_tx.Init.Channel = DMA_CHANNEL_4;
+    hdma_usart4_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
+    hdma_usart4_tx.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_usart4_tx.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_usart4_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+    hdma_usart4_tx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+    hdma_usart4_tx.Init.Mode = DMA_NORMAL;
+    hdma_usart4_tx.Init.Priority = DMA_PRIORITY_HIGH;
+    hdma_usart4_tx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
+    if (HAL_DMA_Init(&hdma_usart4_tx) != HAL_OK)
+    {
+      Error_Handler();
+    }
+    __HAL_LINKDMA(&huart4,hdmatx,hdma_usart4_tx);
+  /* DMA interrupt init */
+  /* DMA1_Stream6_IRQn interrupt configuration */
+//  HAL_NVIC_SetPriority(DMA1_Stream6_IRQn, 0, 0);
+//  HAL_NVIC_EnableIRQ(DMA1_Stream6_IRQn);
+
+}
+
+/**
+  * @brief  Update on the fly the receiver timeout value in RTOR register.
+  * @param  huart Pointer to a UART_HandleTypeDef structure that contains
+  *                    the configuration information for the specified UART module.
+  * @param  TimeoutValue receiver timeout value in number of baud blocks. The timeout
+  *                     value must be less or equal to 0x0FFFFFFFF.
+  * @retval None
+  */
+void USB2UART_ReceiverTimeoutInit(void)
+{
+	  /* Set the timeout of 2 character times (2*10bit) */
+		HAL_UART_ReceiverTimeout_Config(&huart4,20);
+    HAL_UART_EnableReceiverTimeout(&huart4);
+}

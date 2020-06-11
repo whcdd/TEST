@@ -35,11 +35,22 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 				usb2uart_flag = 1;
 //		    USB2UART_SendData(test,4);
 //			  USB2UART_SendData("\r\n",2);
-//			  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14|GPIO_PIN_15);
-			
-			  HAL_UART_Receive_IT(&huart4,USB2UART_aRxBuffer,USB2UART_RXBUFFSIZE);
+//			  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14|GPIO_PIN_15);			
+//			  HAL_UART_Receive_IT(&huart4,USB2UART_aRxBuffer,USB2UART_RXBUFFSIZE);
 		}
-		
+		/*  MTi_630 USART2  */
+		if(huart->Instance == USART2)
+		{
+//				HAL_UART_Transmit_DMA(&huart2,test,5);
+//				while(__HAL_DMA_GET_FLAG(&hdma_usart2_tx,DMA_FLAG_TCIF2_6))
+//				{
+//						__HAL_DMA_CLEAR_FLAG(&hdma_usart2_tx,DMA_FLAG_TCIF2_6);
+//						HAL_UART_DMAStop(&huart2);
+//				}	
+//			
+//			
+//		    HAL_UART_Receive_IT(&huart2,MTi_630_aRxBuffer,MTi_630_RXBUFFSIZE);
+		}
 }
 
 

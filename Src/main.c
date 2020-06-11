@@ -35,23 +35,25 @@
 
 int main(void)
 {
-	u8 flag = 0;
-	u8 test[] = "HELLO";
-	DXL_HandlerTypeDef DXL_Handler;
-	u8 torque_en[] = {0x40,0x00,0x01};
-  u8 param1[] = {0x74,0x00,0x00,0x02,0x00,0x00};
-	u8 param2[] = {0x74,0x00,0xF4,0x0F,0x00,0x00};
+	u8 test[] = "hello";
+//	DXL_HandlerTypeDef DXL_Handler;
+//	u8 torque_en[] = {0x40,0x00,0x01};
+//  u8 param1[] = {0x74,0x00,0x00,0x02,0x00,0x00};
+//	u8 param2[] = {0x74,0x00,0xF4,0x0F,0x00,0x00};
   /* MCU Configuration--------------------------------------------------------*/
   CacheEnalble();
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
   SystemClock_Config();
   /* Initialize all configured peripherals */
-//  LED_Init();
+  LED_Init();
 //  Debug_UART5_Init(115200);
 //	KEY_Init();
 //	DXLMotor_Init(1000000);
+//	USB2UART_Init(1350000);
+	USB2UART_DMA_Init();
 	USB2UART_Init(1350000);
+	USB2UART_ReceiverTimeoutInit();
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	
@@ -62,11 +64,24 @@ int main(void)
 //		DXL_ProtocolSendData(&DXL_Handler);
   while (1)
   {
-		if(usb2uart_flag)
+		if(READ_BIT(huart4.Instance->ISR,USART_ISR_RTOF))
 		{
-			USB2UART_SendData(USB2UART_aRxBuffer,USB2UART_RXBUFFSIZE);
-			usb2uart_flag = 0;
+				SET_BIT(huart4.Instance->ICR,USART_ICR_RTOCF);
+//				HAL_UART_Transmit_DMA(&huart2,test,5);
+//				while(__HAL_DMA_GET_FLAG(&hdma_usart2_tx,DMA_FLAG_TCIF2_6))
+//				{
+//						__HAL_DMA_CLEAR_FLAG(&hdma_usart2_tx,DMA_FLAG_TCIF2_6);
+//						HAL_UART_DMAStop(&huart2);
+//				}
+				USB2UART_SendData(USB2UART_aRxBuffer,5);
+				HAL_UART_Receive_IT(&huart4,USB2UART_aRxBuffer,USB2UART_RXBUFFSIZE);
 		}
+//		if(usb2uart_flag)
+//		{
+//			USB2UART_SendData(USB2UART_aRxBuffer,USB2UART_RXBUFFSIZE);
+//			usb2uart_flag = 0;
+//		}
+
     /* USER CODE END WHILE */
 //		HAL_UART_Transmit(&huart5,test,8,1000);
 //		while(__HAL_UART_GET_FLAG(&huart5,UART_FLAG_TC) != SET);
