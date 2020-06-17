@@ -41,15 +41,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 		/*  MTi_630 USART2  */
 		if(huart->Instance == USART2)
 		{
-//				HAL_UART_Transmit_DMA(&huart2,test,5);
-//				while(__HAL_DMA_GET_FLAG(&hdma_usart2_tx,DMA_FLAG_TCIF2_6))
-//				{
-//						__HAL_DMA_CLEAR_FLAG(&hdma_usart2_tx,DMA_FLAG_TCIF2_6);
-//						HAL_UART_DMAStop(&huart2);
-//				}	
-//			
-//			
-//		    HAL_UART_Receive_IT(&huart2,MTi_630_aRxBuffer,MTi_630_RXBUFFSIZE);
+				MTi_630_SendData(test,4);
+			
+			
+		    HAL_UART_Receive_IT(&huart2,MTi_630_aRxBuffer0,MTi_630_RXBUFFSIZE);
 		}
 }
 

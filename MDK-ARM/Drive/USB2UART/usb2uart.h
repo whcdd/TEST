@@ -3,16 +3,34 @@
 
 #include "config.h"
 
-
+/** @defgroup UART Buffer Size   
+  * @{
+  */
 #define USB2UART_RXBUFFSIZE 100
+#define USB2UART_RXBUFFSIZE1 10
+/**
+  * @}
+  */
+	
+/** @defgroup DMA Double buffer
+  * @{
+  */
+#define MEM0 0
+#define MEM1 1
+/**
+  * @}
+  */
 
 /* External variables --------------------------------------------------------*/
 extern UART_HandleTypeDef huart4;
-extern u8 USB2UART_aRxBuffer[USB2UART_RXBUFFSIZE];
+extern u8 USB2UART_aRxBuffer0[USB2UART_RXBUFFSIZE];
+extern u8 USB2UART_aRxBuffer1[USB2UART_RXBUFFSIZE1];
+extern DMA_HandleTypeDef hdma_uart4_tx;
+extern DMA_HandleTypeDef hdma_uart4_rx;
+
+extern u8 senddataflag;
 
 void USB2UART_Init(u32 baud);
-void USB2UART_DMA_Init(void);
-void USB2UART_ReceiverTimeoutInit(void);
 
 void USB2UART_SendData(u8 *databuf, u8 len);
 

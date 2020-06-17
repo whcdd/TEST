@@ -3,9 +3,23 @@
 
 /* External variables ---------------------------------------------------------*/
 UART_HandleTypeDef huart4;
-u8 USB2UART_aRxBuffer[USB2UART_RXBUFFSIZE] = {0};
-DMA_HandleTypeDef hdma_usart4_tx;
+u8 USB2UART_aRxBuffer0[USB2UART_RXBUFFSIZE] = {0};
+u8 USB2UART_aRxBuffer1[USB2UART_RXBUFFSIZE1] = {0};
+DMA_HandleTypeDef hdma_uart4_tx;
+DMA_HandleTypeDef hdma_uart4_rx;
+u8 senddataflag;
 
+
+/* Private function prototypes -----------------------------------------------*/
+/** @addtogroup USB2UART_Private_Functions
+  * @{
+  */
+static void USB2UART_DMA_Init(void);
+static void USB2UART_ReceiverTimeoutInit(void);
+
+/**
+  * @}
+  */
 
 /**
   * @brief USB2UART UART4 Initialization Function
@@ -36,10 +50,15 @@ void USB2UART_Init(u32 baud)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN UART4_Init 2 */
-//		__HAL_UART_ENABLE_IT(&huart4,UART_IT_RXNE);
-  HAL_UART_Receive_IT(&huart4,USB2UART_aRxBuffer,USB2UART_RXBUFFSIZE);
-  /* USER CODE END UART4_Init 2 */
+	
+		/* Initialize USART RX DMA */
+		USB2UART_DMA_Init();
+	
+	  /* Enable USART receiving timeout mode */
+		USB2UART_ReceiverTimeoutInit();
+	
+		/* Enable UART DMA transmitter&receiver   */
+		SET_BIT(huart4.Instance->CR3, USART_CR3_DMAT|USART_CR3_DMAR);
 
 }
 
@@ -61,28 +80,59 @@ void USB2UART_SendData(u8 *databuf, u8 len)
   * @param NONE
   * @retval None
   */
-void USB2UART_DMA_Init(void) 
+static void USB2UART_DMA_Init(void) 
 {
 
   /* DMA controller clock enable */
 		__HAL_RCC_DMA1_CLK_ENABLE();
 			/* USART4 DMA Init */
     /* USART4_TX Init */
-    hdma_usart4_tx.Instance = DMA1_Stream6;
-    hdma_usart4_tx.Init.Channel = DMA_CHANNEL_4;
-    hdma_usart4_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
-    hdma_usart4_tx.Init.PeriphInc = DMA_PINC_DISABLE;
-    hdma_usart4_tx.Init.MemInc = DMA_MINC_ENABLE;
-    hdma_usart4_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
-    hdma_usart4_tx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
-    hdma_usart4_tx.Init.Mode = DMA_NORMAL;
-    hdma_usart4_tx.Init.Priority = DMA_PRIORITY_HIGH;
-    hdma_usart4_tx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
-    if (HAL_DMA_Init(&hdma_usart4_tx) != HAL_OK)
+		// 使用单缓冲区
+    hdma_uart4_tx.Instance = DMA1_Stream4;
+    hdma_uart4_tx.Init.Channel = DMA_CHANNEL_4;
+    hdma_uart4_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
+    hdma_uart4_tx.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_uart4_tx.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_uart4_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+    hdma_uart4_tx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+    hdma_uart4_tx.Init.Mode = DMA_NORMAL;
+    hdma_uart4_tx.Init.Priority = DMA_PRIORITY_HIGH;
+    hdma_uart4_tx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
+    if (HAL_DMA_Init(&hdma_uart4_tx) != HAL_OK)
     {
       Error_Handler();
     }
-    __HAL_LINKDMA(&huart4,hdmatx,hdma_usart4_tx);
+    __HAL_LINKDMA(&huart4,hdmatx,hdma_uart4_tx);
+		
+//		/* Set Peripheral and buffer address */
+		HAL_DMA_Start(&hdma_uart4_tx,(u32)&huart4.Instance->RDR,(u32)USB2UART_aRxBuffer0,USB2UART_RXBUFFSIZE);
+		
+		    /* USART2_RX Init */
+		// 使用双缓冲区
+    hdma_uart4_rx.Instance = DMA1_Stream2;
+    hdma_uart4_rx.Init.Channel = DMA_CHANNEL_4;
+    hdma_uart4_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
+    hdma_uart4_rx.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_uart4_rx.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_uart4_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+    hdma_uart4_rx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+    hdma_uart4_rx.Init.Mode = DMA_NORMAL;
+    hdma_uart4_rx.Init.Priority = DMA_PRIORITY_LOW;
+    hdma_uart4_rx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
+    if (HAL_DMA_Init(&hdma_uart4_rx) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
+    __HAL_LINKDMA(&huart4,hdmarx,hdma_uart4_rx);
+		
+		
+		/* Set Peripheral and buffer address */
+		 HAL_DMA_Start(&hdma_uart4_rx,(u32)&huart4.Instance->RDR,(u32)USB2UART_aRxBuffer0,USB2UART_RXBUFFSIZE);
+		
+		/* Set RX multiple buffer transfer  */
+//		HAL_DMAEx_MultiBufferStart(&hdma_uart4_rx, (u32)&huart4.Instance->RDR, (u32)USB2UART_aRxBuffer0, (u32)USB2UART_aRxBuffer1, USB2UART_RXBUFFSIZE);
+		
   /* DMA interrupt init */
   /* DMA1_Stream6_IRQn interrupt configuration */
 //  HAL_NVIC_SetPriority(DMA1_Stream6_IRQn, 0, 0);
@@ -98,9 +148,12 @@ void USB2UART_DMA_Init(void)
   *                     value must be less or equal to 0x0FFFFFFFF.
   * @retval None
   */
-void USB2UART_ReceiverTimeoutInit(void)
+static void USB2UART_ReceiverTimeoutInit(void)
 {
 	  /* Set the timeout of 2 character times (2*10bit) */
 		HAL_UART_ReceiverTimeout_Config(&huart4,20);
     HAL_UART_EnableReceiverTimeout(&huart4);
+	
+		/* Enable receive timeout interrupt */
+		__HAL_UART_ENABLE_IT(&huart4,UART_IT_RTO);
 }
