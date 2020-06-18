@@ -71,7 +71,7 @@ void USB2UART_Init(u32 baud)
 void USB2UART_SendData(u8 *databuf, u8 len)
 {
 	  /* Transmit the data */
-	  HAL_UART_Transmit(&huart4,databuf,len,1000);
+	  UARTSendData(&huart4,databuf,len);
 	  while(__HAL_UART_GET_FLAG(&huart4,UART_FLAG_TC) != SET);
 }
 

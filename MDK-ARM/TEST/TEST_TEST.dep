@@ -2,7 +2,7 @@ Dependencies for Project 'TEST', Target 'TEST': (DO NOT MODIFY !)
 CompilerVersion: 5060750::V5.06 update 6 (build 750)::ARMCC
 F (startup_stm32f767xx.s)(0x5EA643CB)(--cpu Cortex-M7.fp.dp -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_TEST-IC:\Users\123\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\123\AppData\Local\Arm\Packs\Keil\STM32F7xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include--pd "__UVISION_VERSION SETA 529" --pd "_RTE_ SETA 1" --pd "STM32F767xx SETA 1"--list startup_stm32f767xx.lst --xref -o .\test\startup_stm32f767xx.o --depend .\test\startup_stm32f767xx.d)
 F (../Src/main.c)(0x5EE880C0)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include -I .\Drive -I .\Drive\sys -I .\Drive\debug_uart5 -I .\Drive\led -I .\Drive\key -I .\Drive\motor -I .\Drive\config -I .\Drive\USB2UART -I .\Drive\IMU-I.\RTE\_TEST-IC:\Users\123\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\123\AppData\Local\Arm\Packs\Keil\STM32F7xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F767xx -DUSE_HAL_DRIVER -DSTM32F767xx-o .\test\main.o --omf_browse .\test\main.crf --depend .\test\main.d)
-I (.\Drive\config\config.h)(0x5EDF209B)
+I (.\Drive\config\config.h)(0x5EEB260F)
 I (D:\KEIL5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
 I (../Inc/main.h)(0x5EB50C0C)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5E97CC7E)
@@ -43,7 +43,7 @@ I (D:\KEIL5\ARM\ARMCC\include\stdlib.h)(0x5D9AD21A)
 I (D:\KEIL5\ARM\ARMCC\include\string.h)(0x5EB4C8EC)
 I (.\Drive\USB2UART\usb2uart.h)(0x5EE82E4D)
 I (.\Drive\IMU\MTi_630.h)(0x5EE990D8)
-F (../Src/stm32f7xx_it.c)(0x5EE9A005)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include -I .\Drive -I .\Drive\sys -I .\Drive\debug_uart5 -I .\Drive\led -I .\Drive\key -I .\Drive\motor -I .\Drive\config -I .\Drive\USB2UART -I .\Drive\IMU-I.\RTE\_TEST-IC:\Users\123\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\123\AppData\Local\Arm\Packs\Keil\STM32F7xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F767xx -DUSE_HAL_DRIVER -DSTM32F767xx-o .\test\stm32f7xx_it.o --omf_browse .\test\stm32f7xx_it.crf --depend .\test\stm32f7xx_it.d)
+F (../Src/stm32f7xx_it.c)(0x5EEB1597)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include -I .\Drive -I .\Drive\sys -I .\Drive\debug_uart5 -I .\Drive\led -I .\Drive\key -I .\Drive\motor -I .\Drive\config -I .\Drive\USB2UART -I .\Drive\IMU-I.\RTE\_TEST-IC:\Users\123\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\123\AppData\Local\Arm\Packs\Keil\STM32F7xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F767xx -DUSE_HAL_DRIVER -DSTM32F767xx-o .\test\stm32f7xx_it.o --omf_browse .\test\stm32f7xx_it.crf --depend .\test\stm32f7xx_it.d)
 I (../Inc/main.h)(0x5EB50C0C)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5E97CC7E)
 I (../Inc/stm32f7xx_hal_conf.h)(0x5EA643C8)
@@ -77,7 +77,7 @@ I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h)(0x5E97CC7E)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_ex.h)(0x5E97CC7E)
 I (../Inc/stm32f7xx_it.h)(0x5EA643C8)
 I (.\Drive\debug_uart5\debug_uart5.h)(0x5EBE04CC)
-I (.\Drive\config\config.h)(0x5EDF209B)
+I (.\Drive\config\config.h)(0x5EEB260F)
 I (.\Drive\sys\clock_init.h)(0x5EA93E8A)
 I (.\Drive\led\led.h)(0x5EA7F400)
 I (.\Drive\key\key.h)(0x5EA7FA77)
@@ -118,7 +118,7 @@ I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5E97CC7E)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5E97CC7E)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h)(0x5E97CC7E)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_ex.h)(0x5E97CC7E)
-I (.\Drive\config\config.h)(0x5EDF209B)
+I (.\Drive\config\config.h)(0x5EEB260F)
 I (.\Drive\sys\clock_init.h)(0x5EA93E8A)
 I (.\Drive\debug_uart5\debug_uart5.h)(0x5EBE04CC)
 I (.\Drive\led\led.h)(0x5EA7F400)
@@ -160,7 +160,7 @@ I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5E97CC7E)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5E97CC7E)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h)(0x5E97CC7E)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_ex.h)(0x5E97CC7E)
-I (.\Drive\config\config.h)(0x5EDF209B)
+I (.\Drive\config\config.h)(0x5EEB260F)
 I (../Inc/main.h)(0x5EB50C0C)
 I (.\Drive\sys\clock_init.h)(0x5EA93E8A)
 I (.\Drive\debug_uart5\debug_uart5.h)(0x5EBE04CC)
@@ -204,7 +204,7 @@ I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5E97CC7E)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5E97CC7E)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h)(0x5E97CC7E)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_ex.h)(0x5E97CC7E)
-I (.\Drive\config\config.h)(0x5EDF209B)
+I (.\Drive\config\config.h)(0x5EEB260F)
 I (.\Drive\sys\clock_init.h)(0x5EA93E8A)
 I (.\Drive\debug_uart5\debug_uart5.h)(0x5EBE04CC)
 I (.\Drive\led\led.h)(0x5EA7F400)
@@ -280,9 +280,9 @@ I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h)(0x5E97CC7E)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5E97CC7E)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h)(0x5E97CC7E)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_ex.h)(0x5E97CC7E)
-F (.\Drive\motor\DynamixelMotor.c)(0x5EDF201C)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include -I .\Drive -I .\Drive\sys -I .\Drive\debug_uart5 -I .\Drive\led -I .\Drive\key -I .\Drive\motor -I .\Drive\config -I .\Drive\USB2UART -I .\Drive\IMU-I.\RTE\_TEST-IC:\Users\123\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\123\AppData\Local\Arm\Packs\Keil\STM32F7xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F767xx -DUSE_HAL_DRIVER -DSTM32F767xx-o .\test\dynamixelmotor.o --omf_browse .\test\dynamixelmotor.crf --depend .\test\dynamixelmotor.d)
+F (.\Drive\motor\DynamixelMotor.c)(0x5EEB2690)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include -I .\Drive -I .\Drive\sys -I .\Drive\debug_uart5 -I .\Drive\led -I .\Drive\key -I .\Drive\motor -I .\Drive\config -I .\Drive\USB2UART -I .\Drive\IMU-I.\RTE\_TEST-IC:\Users\123\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\123\AppData\Local\Arm\Packs\Keil\STM32F7xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F767xx -DUSE_HAL_DRIVER -DSTM32F767xx-o .\test\dynamixelmotor.o --omf_browse .\test\dynamixelmotor.crf --depend .\test\dynamixelmotor.d)
 I (Drive\motor\DynamixelMotor.h)(0x5EB9039A)
-I (.\Drive\config\config.h)(0x5EDF209B)
+I (.\Drive\config\config.h)(0x5EEB260F)
 I (D:\KEIL5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
 I (../Inc/main.h)(0x5EB50C0C)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5E97CC7E)
@@ -323,8 +323,8 @@ I (D:\KEIL5\ARM\ARMCC\include\stdlib.h)(0x5D9AD21A)
 I (D:\KEIL5\ARM\ARMCC\include\string.h)(0x5EB4C8EC)
 I (.\Drive\USB2UART\usb2uart.h)(0x5EE82E4D)
 I (.\Drive\IMU\MTi_630.h)(0x5EE990D8)
-F (.\Drive\config\config.c)(0x5EE9907F)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include -I .\Drive -I .\Drive\sys -I .\Drive\debug_uart5 -I .\Drive\led -I .\Drive\key -I .\Drive\motor -I .\Drive\config -I .\Drive\USB2UART -I .\Drive\IMU-I.\RTE\_TEST-IC:\Users\123\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\123\AppData\Local\Arm\Packs\Keil\STM32F7xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F767xx -DUSE_HAL_DRIVER -DSTM32F767xx-o .\test\config.o --omf_browse .\test\config.crf --depend .\test\config.d)
-I (Drive\config\config.h)(0x5EDF209B)
+F (.\Drive\config\config.c)(0x5EEB2608)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include -I .\Drive -I .\Drive\sys -I .\Drive\debug_uart5 -I .\Drive\led -I .\Drive\key -I .\Drive\motor -I .\Drive\config -I .\Drive\USB2UART -I .\Drive\IMU-I.\RTE\_TEST-IC:\Users\123\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\123\AppData\Local\Arm\Packs\Keil\STM32F7xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F767xx -DUSE_HAL_DRIVER -DSTM32F767xx-o .\test\config.o --omf_browse .\test\config.crf --depend .\test\config.d)
+I (Drive\config\config.h)(0x5EEB260F)
 I (D:\KEIL5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
 I (../Inc/main.h)(0x5EB50C0C)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5E97CC7E)
@@ -357,7 +357,7 @@ I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h)(0x5E97CC7E)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h)(0x5E97CC7E)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_ex.h)(0x5E97CC7E)
 I (.\Drive\sys\clock_init.h)(0x5EA93E8A)
-I (.\Drive\config\config.h)(0x5EDF209B)
+I (.\Drive\config\config.h)(0x5EEB260F)
 I (.\Drive\debug_uart5\debug_uart5.h)(0x5EBE04CC)
 I (.\Drive\led\led.h)(0x5EA7F400)
 I (.\Drive\key\key.h)(0x5EA7FA77)
@@ -366,9 +366,9 @@ I (D:\KEIL5\ARM\ARMCC\include\stdlib.h)(0x5D9AD21A)
 I (D:\KEIL5\ARM\ARMCC\include\string.h)(0x5EB4C8EC)
 I (.\Drive\USB2UART\usb2uart.h)(0x5EE82E4D)
 I (.\Drive\IMU\MTi_630.h)(0x5EE990D8)
-F (.\Drive\USB2UART\usb2uart.c)(0x5EE8300D)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include -I .\Drive -I .\Drive\sys -I .\Drive\debug_uart5 -I .\Drive\led -I .\Drive\key -I .\Drive\motor -I .\Drive\config -I .\Drive\USB2UART -I .\Drive\IMU-I.\RTE\_TEST-IC:\Users\123\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\123\AppData\Local\Arm\Packs\Keil\STM32F7xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F767xx -DUSE_HAL_DRIVER -DSTM32F767xx-o .\test\usb2uart.o --omf_browse .\test\usb2uart.crf --depend .\test\usb2uart.d)
+F (.\Drive\USB2UART\usb2uart.c)(0x5EEB261B)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include -I .\Drive -I .\Drive\sys -I .\Drive\debug_uart5 -I .\Drive\led -I .\Drive\key -I .\Drive\motor -I .\Drive\config -I .\Drive\USB2UART -I .\Drive\IMU-I.\RTE\_TEST-IC:\Users\123\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\123\AppData\Local\Arm\Packs\Keil\STM32F7xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F767xx -DUSE_HAL_DRIVER -DSTM32F767xx-o .\test\usb2uart.o --omf_browse .\test\usb2uart.crf --depend .\test\usb2uart.d)
 I (Drive\USB2UART\usb2uart.h)(0x5EE82E4D)
-I (.\Drive\config\config.h)(0x5EDF209B)
+I (.\Drive\config\config.h)(0x5EEB260F)
 I (D:\KEIL5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
 I (../Inc/main.h)(0x5EB50C0C)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5E97CC7E)
@@ -409,9 +409,9 @@ I (D:\KEIL5\ARM\ARMCC\include\stdlib.h)(0x5D9AD21A)
 I (D:\KEIL5\ARM\ARMCC\include\string.h)(0x5EB4C8EC)
 I (.\Drive\USB2UART\usb2uart.h)(0x5EE82E4D)
 I (.\Drive\IMU\MTi_630.h)(0x5EE990D8)
-F (.\Drive\IMU\MTi_630.c)(0x5EE99E7C)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include -I .\Drive -I .\Drive\sys -I .\Drive\debug_uart5 -I .\Drive\led -I .\Drive\key -I .\Drive\motor -I .\Drive\config -I .\Drive\USB2UART -I .\Drive\IMU-I.\RTE\_TEST-IC:\Users\123\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\123\AppData\Local\Arm\Packs\Keil\STM32F7xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F767xx -DUSE_HAL_DRIVER -DSTM32F767xx-o .\test\mti_630.o --omf_browse .\test\mti_630.crf --depend .\test\mti_630.d)
+F (.\Drive\IMU\MTi_630.c)(0x5EEB267B)(-c --cpu Cortex-M7.fp.dp -D__MICROLIB -g -O2 -Otime --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc -I ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I ../Drivers/CMSIS/Include -I .\Drive -I .\Drive\sys -I .\Drive\debug_uart5 -I .\Drive\led -I .\Drive\key -I .\Drive\motor -I .\Drive\config -I .\Drive\USB2UART -I .\Drive\IMU-I.\RTE\_TEST-IC:\Users\123\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\123\AppData\Local\Arm\Packs\Keil\STM32F7xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F7xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F767xx -DUSE_HAL_DRIVER -DSTM32F767xx-o .\test\mti_630.o --omf_browse .\test\mti_630.crf --depend .\test\mti_630.d)
 I (Drive\IMU\MTi_630.h)(0x5EE990D8)
-I (.\Drive\config\config.h)(0x5EDF209B)
+I (.\Drive\config\config.h)(0x5EEB260F)
 I (D:\KEIL5\ARM\ARMCC\include\stdint.h)(0x5D9AD218)
 I (../Inc/main.h)(0x5EB50C0C)
 I (../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h)(0x5E97CC7E)

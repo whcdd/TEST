@@ -258,32 +258,20 @@ void DMA1_Stream5_IRQHandler(void)
 			/* Clear DMA Transfer complete flag */
 			__HAL_DMA_CLEAR_FLAG(&hdma_usart2_rx,DMA_FLAG_TCIF1_5);
 		
-			/* Disable the DMA */
-//			__HAL_DMA_DISABLE(&hdma_usart2_rx);
 			  
 			/* Derive the receiving data length from the NDTR register */
 			RxLen = MTi_630_RXBUFFSIZE - __HAL_DMA_GET_COUNTER(&hdma_usart2_rx);	
-			
-//			/* Reset the DMA NDTR */
-//			__HAL_DMA_SET_COUNTER(&hdma_usart2_rx,MTi_630_RXBUFFSIZE);
+
 		  
 		  /* Progress the reveiving data */
 			if(READ_BIT(hdma_usart2_rx.Instance->CR,DMA_SxCR_CT) == 0)
 			{
 					USB2UART_SendData(MTi_630_aRxBuffer0,MTi_630_RXBUFFSIZE);
-//					USB2UART_SendData("\r\n",2);
-//					USB2UART_SendData("mem0\r\n",6);
 			}
 			else
 			{
 					USB2UART_SendData(MTi_630_aRxBuffer1,MTi_630_RXBUFFSIZE);
-//					USB2UART_SendData("\r\n",2);
-//					USB2UART_SendData("mem1\r\n",6);
 			}
-//		  USB2UART_SendData("HELLO",5);
-				
-			/* Enable the DMA */
-//			__HAL_DMA_ENABLE(&hdma_usart2_rx);
 	}
 }
 

@@ -151,7 +151,7 @@ DXL_StatusTypeDef DXL_SendData(u8 *databuf, u8 len)
 {
     DXL_DIR(DE);
 	  /* Transmit the data */
-	  HAL_UART_Transmit(&huart1,databuf,len,1000);
+	  UARTSendData(&huart1,databuf,len);
 	  while(__HAL_UART_GET_FLAG(&huart1,UART_FLAG_TC) != SET);
 
 	  DXL_DIR(RE);

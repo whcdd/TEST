@@ -14,7 +14,6 @@ u8 MTi_630_flag=0;
   * @{
   */
 static void MTi_630_DMA_Init(void);
-static void MTi_630_ReceiverTimeoutInit(void);
 
 /**
   * @}
@@ -135,23 +134,6 @@ static void MTi_630_DMA_Init(void)
 		HAL_NVIC_EnableIRQ(DMA1_Stream5_IRQn);
 }
 
-/**
-  * @brief  Update on the fly the receiver timeout value in RTOR register.
-  * @param  huart Pointer to a UART_HandleTypeDef structure that contains
-  *                    the configuration information for the specified UART module.
-  * @param  TimeoutValue receiver timeout value in number of baud blocks. The timeout
-  *                     value must be less or equal to 0x0FFFFFFFF.
-  * @retval None
-  */
-static void MTi_630_ReceiverTimeoutInit(void)
-{
-	  /* Set the timeout of 2 character times (2*10bit) */
-		HAL_UART_ReceiverTimeout_Config(&huart2,20);
-    HAL_UART_EnableReceiverTimeout(&huart2);
-	
-	  /* Enable receive timeout interrupt */
-		__HAL_UART_ENABLE_IT(&huart2,UART_IT_RTO);
-}
 
 /**
   * @brief IMU  Send Data to IMU 
@@ -162,6 +144,6 @@ static void MTi_630_ReceiverTimeoutInit(void)
 void MTi_630_SendData(u8 *databuf, u8 len)
 {
 	  /* Transmit the data */
-	  HAL_UART_Transmit(&huart2,databuf,len,1000);
+	  UARTSendData(&huart2,databuf,len);
 	  while(__HAL_UART_GET_FLAG(&huart2,UART_FLAG_TC) != SET);
 }
