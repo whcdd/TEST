@@ -32,6 +32,6 @@ extern u8 senddataflag;
 
 void USB2UART_Init(u32 baud);
 
-void USB2UART_SendData(u8 *databuf, u8 len);
+void USB2UART_SendData(u8 *databuf, u32 len);
 
 #endif

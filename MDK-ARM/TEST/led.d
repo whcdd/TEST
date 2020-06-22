@@ -26,6 +26,8 @@
 .\test\led.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h
 .\test\led.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h
 .\test\led.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h
+.\test\led.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sdram.h
+.\test\led.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_fmc.h
 .\test\led.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h
 .\test\led.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h
 .\test\led.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h

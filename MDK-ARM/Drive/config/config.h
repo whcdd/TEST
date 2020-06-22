@@ -13,6 +13,7 @@
 #include <string.h>
 #include "usb2uart.h"
 #include "MTi_630.h"
+#include "sdram.h"
 
 /** 
   * @brief  HAL Status structures definition  

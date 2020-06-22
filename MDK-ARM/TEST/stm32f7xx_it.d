@@ -25,6 +25,8 @@
 .\test\stm32f7xx_it.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h
 .\test\stm32f7xx_it.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h
 .\test\stm32f7xx_it.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h
+.\test\stm32f7xx_it.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sdram.h
+.\test\stm32f7xx_it.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_fmc.h
 .\test\stm32f7xx_it.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h
 .\test\stm32f7xx_it.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h
 .\test\stm32f7xx_it.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h
@@ -44,3 +46,4 @@
 .\test\stm32f7xx_it.o: D:\KEIL5\ARM\ARMCC\Bin\..\include\string.h
 .\test\stm32f7xx_it.o: .\Drive\USB2UART\usb2uart.h
 .\test\stm32f7xx_it.o: .\Drive\IMU\MTi_630.h
+.\test\stm32f7xx_it.o: .\Drive\sdram\sdram.h

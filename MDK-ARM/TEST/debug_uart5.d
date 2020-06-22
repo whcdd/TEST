@@ -26,6 +26,8 @@
 .\test\debug_uart5.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h
 .\test\debug_uart5.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h
 .\test\debug_uart5.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h
+.\test\debug_uart5.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sdram.h
+.\test\debug_uart5.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_fmc.h
 .\test\debug_uart5.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h
 .\test\debug_uart5.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h
 .\test\debug_uart5.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h
@@ -43,3 +45,4 @@
 .\test\debug_uart5.o: D:\KEIL5\ARM\ARMCC\Bin\..\include\string.h
 .\test\debug_uart5.o: .\Drive\USB2UART\usb2uart.h
 .\test\debug_uart5.o: .\Drive\IMU\MTi_630.h
+.\test\debug_uart5.o: .\Drive\sdram\sdram.h

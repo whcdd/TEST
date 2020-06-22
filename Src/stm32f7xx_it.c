@@ -310,7 +310,6 @@ void UART4_IRQHandler(void)
 			
 			  /* Clear DMA TCIF2& HTIF2 flag */
 			  __HAL_DMA_CLEAR_FLAG(&hdma_uart4_rx,DMA_FLAG_TCIF2_6);
-				__HAL_DMA_CLEAR_FLAG(&hdma_uart4_rx,DMA_FLAG_TCIF2_6);
 			  
 			  /* Reset the DMA NDTR */
 			  __HAL_DMA_SET_COUNTER(&hdma_uart4_rx,USB2UART_RXBUFFSIZE);

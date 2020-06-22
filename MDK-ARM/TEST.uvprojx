@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F767xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;../Drivers/STM32F7xx_HAL_Driver/Inc;../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F7xx/Include;../Drivers/CMSIS/Include;.\Drive;.\Drive\sys;.\Drive\debug_uart5;.\Drive\led;.\Drive\key;.\Drive\motor;.\Drive\config;.\Drive\USB2UART;.\Drive\IMU</IncludePath>
+              <IncludePath>../Inc;../Drivers/STM32F7xx_HAL_Driver/Inc;../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F7xx/Include;../Drivers/CMSIS/Include;.\Drive;.\Drive\sys;.\Drive\debug_uart5;.\Drive\led;.\Drive\key;.\Drive\motor;.\Drive\config;.\Drive\USB2UART;.\Drive\IMU;.\Drive\sdram;..\Drivers\STM32F7xx_HAL_Driver\Inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -447,6 +447,11 @@
               <FileType>1</FileType>
               <FilePath>.\Drive\IMU\MTi_630.c</FilePath>
             </File>
+            <File>
+              <FileName>sdram.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drive\sdram\sdram.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -542,6 +547,16 @@
               <FileType>1</FileType>
               <FilePath>../Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_exti.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f7xx_hal_sdram.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_sdram.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f7xx_ll_fmc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_ll_fmc.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -564,8 +579,8 @@
   <RTE>
     <apis/>
     <components>
-      <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="4.3.0" condition="CMSIS Core">
-        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="4.5.0"/>
+      <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="5.4.0" condition="ARMv6_7_8-M Device">
+        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.7.0"/>
         <targetInfos>
           <targetInfo name="TEST"/>
         </targetInfos>

@@ -25,6 +25,8 @@
 .\test\clock_init.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_cortex.h
 .\test\clock_init.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash.h
 .\test\clock_init.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h
+.\test\clock_init.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_sdram.h
+.\test\clock_init.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_fmc.h
 .\test\clock_init.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h
 .\test\clock_init.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h
 .\test\clock_init.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h
@@ -43,3 +45,4 @@
 .\test\clock_init.o: D:\KEIL5\ARM\ARMCC\Bin\..\include\string.h
 .\test\clock_init.o: .\Drive\USB2UART\usb2uart.h
 .\test\clock_init.o: .\Drive\IMU\MTi_630.h
+.\test\clock_init.o: .\Drive\sdram\sdram.h
