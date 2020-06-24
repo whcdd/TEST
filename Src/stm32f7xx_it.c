@@ -233,7 +233,6 @@ void USART2_IRQHandler(void)
 			
 			  /* Clear DMA TCIF2& HTIF2 flag */
 			  __HAL_DMA_CLEAR_FLAG(&hdma_usart2_rx,DMA_FLAG_TCIF1_5);
-				__HAL_DMA_CLEAR_FLAG(&hdma_usart2_rx,DMA_FLAG_TCIF1_5);
 			  
 			  /* Reset the DMA NDTR */
 			  __HAL_DMA_SET_COUNTER(&hdma_usart2_rx,MTi_630_RXBUFFSIZE);
@@ -247,8 +246,9 @@ void USART2_IRQHandler(void)
 		}
 }
 
+/*         MTi630 Interrupt Function        */
 /**
-  * @brief This function handles DMA1 stream5 hdma_usart2_rx global interrupt.
+  * @brief This function handles DMA1 stream5 hdma_usart2_rx global interrupt. MTi-630
   */
 void DMA1_Stream5_IRQHandler(void)
 {
@@ -263,17 +263,20 @@ void DMA1_Stream5_IRQHandler(void)
 			RxLen = MTi_630_RXBUFFSIZE - __HAL_DMA_GET_COUNTER(&hdma_usart2_rx);	
 
 		  
-		  /* Progress the reveiving data */
-			if(READ_BIT(hdma_usart2_rx.Instance->CR,DMA_SxCR_CT) == 0)
+		  /* Progress the reveiving data -copy buffer content to MTi_630_aRxBuffer*/
+			if(READ_BIT(hdma_usart2_rx.Instance->CR,DMA_SxCR_CT) == MTI630_BUFFER0)
 			{
-					USB2UART_SendData(MTi_630_aRxBuffer0,MTi_630_RXBUFFSIZE);
+					copySrcBufferToDesMem(MTi_630_aRxBuffer0,MTi_630_aRxBuffer,MTi_630_RXBUFFSIZE);
+//					USB2UART_SendData(MTi_630_aRxBuffer0,MTi_630_RXBUFFSIZE);
 			}
 			else
 			{
-					USB2UART_SendData(MTi_630_aRxBuffer1,MTi_630_RXBUFFSIZE);
+				  copySrcBufferToDesMem(MTi_630_aRxBuffer1,MTi_630_aRxBuffer,MTi_630_RXBUFFSIZE);
+//					USB2UART_SendData(MTi_630_aRxBuffer1,MTi_630_RXBUFFSIZE);
 			}
 	}
 }
+
 
 /**
   * @brief This function handles DMA1 stream6 global interrupt.

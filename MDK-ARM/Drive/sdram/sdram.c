@@ -67,7 +67,7 @@ static void SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *hsdram)
 		u32 modeRegesiterValue=0;
 		
 		SDRAM_Send_Cmd(0,FMC_SDRAM_CMD_CLK_ENABLE,1,0);
-		HAL_Delay(500); //?
+		HAL_Delay(500); 
 		SDRAM_Send_Cmd(0,FMC_SDRAM_CMD_PALL,1,0);
 		SDRAM_Send_Cmd(0,FMC_SDRAM_CMD_AUTOREFRESH_MODE,8,0);
 		/* Config the mode regester value */

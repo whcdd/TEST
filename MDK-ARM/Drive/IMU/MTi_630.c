@@ -4,8 +4,9 @@
 UART_HandleTypeDef huart2;
 DMA_HandleTypeDef hdma_usart2_tx;
 DMA_HandleTypeDef hdma_usart2_rx;
-u8 MTi_630_aRxBuffer0[MTi_630_RXBUFFSIZE] = {0};
-u8 MTi_630_aRxBuffer1[MTi_630_RXBUFFSIZE] = {0};
+__align(4) u8 MTi_630_aRxBuffer0[MTi_630_RXBUFFSIZE] __attribute__((at(0XC0000000)));
+__align(4) u8 MTi_630_aRxBuffer1[MTi_630_RXBUFFSIZE] __attribute__((at(0XC0000100)));
+__align(4) u8  MTi_630_aRxBuffer[MTi_630_RXBUFFSIZE] __attribute__((at(0XC0000200)));
 u8 MTi_630_flag=0;
 
 
@@ -146,4 +147,29 @@ void MTi_630_SendData(u8 *databuf, u8 len)
 	  /* Transmit the data */
 	  UARTSendData(&huart2,databuf,len);
 	  while(__HAL_UART_GET_FLAG(&huart2,UART_FLAG_TC) != SET);
+}
+
+/**
+  * @brief IMU  Copy SrcBuffer to DesMem
+  * @param SrcBuffer: Souce Buffer
+	* @param DesMem: Destination Memory
+  * @param Len: the size of the buffer
+  * @retval None
+  */
+
+u8 copySrcBufferToDesMem(u8* SrcBuffer,u8* DesMem,u16 Len)
+{
+		u16 count=0;
+	
+		/* When SrcBuffer OR DesMem OR Len is empty */
+		if(SrcBuffer == NULL || DesMem == NULL || Len == 0)
+		{
+				return 0;
+		}
+		
+		for(count = 0;count < Len;count++)
+		{
+				*DesMem++ = *SrcBuffer++;
+		}
+		return 1;
 }

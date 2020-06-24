@@ -21,11 +21,22 @@
   * @}
   */
 	
+/** @defgroup Buffer definition
+* @{
+*/
+#define MTI630_BUFFER0   0
+#define MTI630_BUFFER1   1
+/**
+  * @}
+  */
+	
 
 /* External variables --------------------------------------------------------*/
 extern UART_HandleTypeDef huart2;
-extern u8 MTi_630_aRxBuffer0[MTi_630_RXBUFFSIZE];
-extern u8 MTi_630_aRxBuffer1[MTi_630_RXBUFFSIZE];
+extern __align(4) u8 MTi_630_aRxBuffer0[MTi_630_RXBUFFSIZE] __attribute__((at(0XC0000000)));
+extern __align(4) u8 MTi_630_aRxBuffer1[MTi_630_RXBUFFSIZE] __attribute__((at(0XC0000100)));
+extern __align(4) u8  MTi_630_aRxBuffer[MTi_630_RXBUFFSIZE] __attribute__((at(0XC0000200)));
+
 
 extern u8 MTi_630_flag;
 extern DMA_HandleTypeDef hdma_usart2_tx;
@@ -38,5 +49,9 @@ void MTi_630_Init(u32 baud);
 
 /* IMU operation functions *****************************************************/
 void MTi_630_SendData(u8 *databuf, u8 len);
+
+/* Other operation functions */
+u8 copySrcBufferToDesMem(u8* SrcBuffer,u8* DesMem,u16 Len);
+
 
 #endif

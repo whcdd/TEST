@@ -35,7 +35,7 @@
 /* SDRAM Memory */
 // MAX ADDRESS IS 0XC1FF FFFF
 #define SDRAMSIZE 0xffff
-u8 sdramMemory[SDRAMSIZE] __attribute__((at(0XC0000000)));
+//u8 sdramMemory[SDRAMSIZE] __attribute__((at(0XC0000000)));
 
 int main(void)
 {
@@ -54,19 +54,20 @@ int main(void)
 	SDRAM_FMC_Init();
 	USB2UART_Init(2000000);
 	/* Note: MTi630 must initialize at last!!! */
-//	MTi_630_Init(921600);
+	MTi_630_Init(921600);
 	
 	
-	for(ts=0;ts<0xf;ts++,temp++)
-	{
-		sdramMemory[ts]=temp;
-	}
+//	for(ts=0;ts<0xf;ts++,temp++)
+//	{
+//		sdramMemory[ts]=temp;
+//	}
   while (1)
   {
-			USB2UART_SendData(sdramMemory,0xf);
-			HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14|GPIO_PIN_15);
+//			USB2UART_SendData(sdramMemory,0xf);
+			USB2UART_SendData(MTi_630_aRxBuffer,MTi_630_RXBUFFSIZE);
+//			HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14|GPIO_PIN_15);
 
-			HAL_Delay(1000);
+//			HAL_Delay(1000);
   }
 }
 
