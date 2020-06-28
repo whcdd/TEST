@@ -167,9 +167,11 @@ u8 copySrcBufferToDesMem(u8* SrcBuffer,u8* DesMem,u16 Len)
 				return 0;
 		}
 		
-		for(count = 0;count < Len;count++)
-		{
-				*DesMem++ = *SrcBuffer++;
-		}
+		/* Copy data from SrcBuffer to DesMem */
+		memcpy(DesMem,SrcBuffer,Len*sizeof(u8));
+//		for(count = 0;count < Len;count++)
+//		{
+//				*DesMem++ = *SrcBuffer++;
+//		}
 		return 1;
 }
