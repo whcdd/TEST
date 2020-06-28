@@ -162,10 +162,10 @@ u8 copySrcBufferToDesMem(u8* SrcBuffer,u8* DesMem,u16 Len)
 		u16 count=0;
 	
 		/* When SrcBuffer OR DesMem OR Len is empty */
-		if(SrcBuffer == NULL || DesMem == NULL || Len == 0)
-		{
-				return 0;
-		}
+//		if(SrcBuffer == NULL || DesMem == NULL || Len == 0)
+//		{
+//				return 0;
+//		}
 		
 		/* Copy data from SrcBuffer to DesMem */
 		memcpy(DesMem,SrcBuffer,Len*sizeof(u8));
