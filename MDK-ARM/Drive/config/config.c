@@ -2,6 +2,8 @@
 
 u8 usb2uart_flag=0;
 
+void UART_Transmit(UART_HandleTypeDef huart,u8 *databuf, u8 len);
+
 /* UART interrupt function */
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
@@ -35,11 +37,17 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 				usb2uart_flag = 1;
 //		    USB2UART_SendData(test,4);
 //			  USB2UART_SendData("\r\n",2);
-//			  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14|GPIO_PIN_15);
-			
-			  HAL_UART_Receive_IT(&huart4,USB2UART_aRxBuffer,USB2UART_RXBUFFSIZE);
+//			  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14|GPIO_PIN_15);			
+//			  HAL_UART_Receive_IT(&huart4,USB2UART_aRxBuffer,USB2UART_RXBUFFSIZE);
 		}
-		
+		/*  MTi_630 USART2  */
+		if(huart->Instance == USART2)
+		{
+				MTi_630_SendData(test,4);
+			
+			
+		    HAL_UART_Receive_IT(&huart2,MTi_630_aRxBuffer0,MTi_630_RXBUFFSIZE);
+		}
 }
 
 
@@ -65,6 +73,38 @@ void Error_Handler(void)
 
   /* USER CODE END Error_Handler_Debug */
 }
+
+//void UART_Transmit(UART_HandleTypeDef huart,u8 *databuf, u8 len)
+//{
+//	int t = 0;
+//	  for(t=0;t<len;t++)
+//	{
+//		huart.Instance->TDR=databuf[t];
+//		while((huart.Instance->ISR&0X40)==0);//等待发送结束
+//	}
+//}
+
+void UART_Transmit(UART_HandleTypeDef huart,u8 *databuf, u8 len)
+{
+//	if((databuf == NULL) || len == 0)
+//		{
+//				return UART_DATA_ERROR;
+//		}
+		
+		huart.TxXferSize = len;
+		huart.TxXferCount = len;
+		
+		while(huart.TxXferCount	>	0)
+		{
+				huart.Instance->TDR = *databuf;
+				while((huart.Instance->ISR&0X40)==0);//等待发送结束
+			  
+				databuf++;
+			  huart.TxXferCount--;	
+		}
+//		return UART_SEND_COMPLETE;
+}
+
 
 #ifdef  USE_FULL_ASSERT
 /**

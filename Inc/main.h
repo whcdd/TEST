@@ -64,6 +64,7 @@ typedef unsigned int u32;
 
 /* USER CODE END Private defines */
 
+
 #ifdef __cplusplus
 }
 #endif

@@ -10,6 +10,9 @@
 ".\test\dynamixelmotor.o"
 ".\test\config.o"
 ".\test\usb2uart.o"
+".\test\mti_630.o"
+".\test\commandprocess.o"
+".\test\dataframe.o"
 ".\test\stm32f7xx_hal_cortex.o"
 ".\test\stm32f7xx_hal_tim.o"
 ".\test\stm32f7xx_hal_tim_ex.o"
@@ -30,6 +33,6 @@
 ".\test\stm32f7xx_hal_exti.o"
 ".\test\system_stm32f7xx.o"
 --library_type=microlib --strict --scatter ".\TEST\TEST.sct"
---summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "TEST.map" -o .\TEST\TEST.axf

@@ -1,6 +1,6 @@
 .\test\config.o: Drive\config\config.c
 .\test\config.o: Drive\config\config.h
-.\test\config.o: D:\KEIL5\ARM\ARMCC\Bin\..\include\stdint.h
+.\test\config.o: F:\software\keil\ARM\ARMCC\Bin\..\include\stdint.h
 .\test\config.o: ../Inc/main.h
 .\test\config.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h
 .\test\config.o: ../Inc/stm32f7xx_hal_conf.h
@@ -16,7 +16,7 @@
 .\test\config.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h
 .\test\config.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h
 .\test\config.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-.\test\config.o: D:\KEIL5\ARM\ARMCC\Bin\..\include\stddef.h
+.\test\config.o: F:\software\keil\ARM\ARMCC\Bin\..\include\stddef.h
 .\test\config.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h
 .\test\config.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_exti.h
 .\test\config.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h
@@ -38,6 +38,7 @@
 .\test\config.o: .\Drive\led\led.h
 .\test\config.o: .\Drive\key\key.h
 .\test\config.o: .\Drive\motor\DynamixelMotor.h
-.\test\config.o: D:\KEIL5\ARM\ARMCC\Bin\..\include\stdlib.h
-.\test\config.o: D:\KEIL5\ARM\ARMCC\Bin\..\include\string.h
+.\test\config.o: F:\software\keil\ARM\ARMCC\Bin\..\include\stdlib.h
+.\test\config.o: F:\software\keil\ARM\ARMCC\Bin\..\include\string.h
 .\test\config.o: .\Drive\USB2UART\usb2uart.h
+.\test\config.o: .\Drive\IMU\MTi_630.h
