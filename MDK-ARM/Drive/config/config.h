@@ -24,7 +24,6 @@ typedef enum
 	UART_SEND_COMPLETE		= 1
 } UART_sendStatusTypeDef;
 
-
 extern u8 usb2uart_flag;
 
 

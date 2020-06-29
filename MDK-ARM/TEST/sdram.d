@@ -1,7 +1,11 @@
 .\test\sdram.o: Drive\sdram\sdram.c
 .\test\sdram.o: Drive\sdram\sdram.h
 .\test\sdram.o: .\Drive\config\config.h
+<<<<<<< HEAD
 .\test\sdram.o: D:\KEIL5\ARM\ARMCC\Bin\..\include\stdint.h
+=======
+.\test\sdram.o: F:\software\keil\ARM\ARMCC\Bin\..\include\stdint.h
+>>>>>>> pr/1
 .\test\sdram.o: ../Inc/main.h
 .\test\sdram.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h
 .\test\sdram.o: ../Inc/stm32f7xx_hal_conf.h
@@ -17,7 +21,11 @@
 .\test\sdram.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h
 .\test\sdram.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h
 .\test\sdram.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
+<<<<<<< HEAD
 .\test\sdram.o: D:\KEIL5\ARM\ARMCC\Bin\..\include\stddef.h
+=======
+.\test\sdram.o: F:\software\keil\ARM\ARMCC\Bin\..\include\stddef.h
+>>>>>>> pr/1
 .\test\sdram.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h
 .\test\sdram.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_exti.h
 .\test\sdram.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h
@@ -31,6 +39,10 @@
 .\test\sdram.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_fmc.h
 .\test\sdram.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h
 .\test\sdram.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h
+<<<<<<< HEAD
+=======
+.\test\sdram.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_iwdg.h
+>>>>>>> pr/1
 .\test\sdram.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h
 .\test\sdram.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h
 .\test\sdram.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h
@@ -41,8 +53,13 @@
 .\test\sdram.o: .\Drive\led\led.h
 .\test\sdram.o: .\Drive\key\key.h
 .\test\sdram.o: .\Drive\motor\DynamixelMotor.h
+<<<<<<< HEAD
 .\test\sdram.o: D:\KEIL5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\test\sdram.o: D:\KEIL5\ARM\ARMCC\Bin\..\include\string.h
+=======
+.\test\sdram.o: F:\software\keil\ARM\ARMCC\Bin\..\include\stdlib.h
+.\test\sdram.o: F:\software\keil\ARM\ARMCC\Bin\..\include\string.h
+>>>>>>> pr/1
 .\test\sdram.o: .\Drive\USB2UART\usb2uart.h
 .\test\sdram.o: .\Drive\IMU\MTi_630.h
 .\test\sdram.o: .\Drive\sdram\sdram.h

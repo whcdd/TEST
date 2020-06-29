@@ -47,6 +47,10 @@
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
+extern unsigned char UART4RxEndFlag;
+extern unsigned char UART4RxLen;
+extern unsigned char UART1RxEndFlag;
+extern unsigned char UART1RxLen;
 void NMI_Handler(void);
 void HardFault_Handler(void);
 void MemManage_Handler(void);

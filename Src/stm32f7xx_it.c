@@ -71,6 +71,10 @@
 /**
   * @brief This function handles Non maskable interrupt.
   */
+  unsigned char UART4RxEndFlag = 0;
+  unsigned char UART4RxLen = 0;
+  unsigned char UART1RxEndFlag = 0;
+  unsigned char UART1RxLen = 0;
 void NMI_Handler(void) 
 {
   /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
@@ -207,12 +211,39 @@ void SysTick_Handler(void)
   */
 void USART1_IRQHandler(void)
 {
-  /* USER CODE BEGIN USART1_IRQn 0 */
+	u32 RxLen;
+	volatile u32 a = 0;
+	u8 i = 0;
 
-  /* USER CODE END USART1_IRQn 0 */
-  HAL_UART_IRQHandler(&huart1);
-  /* USER CODE BEGIN USART1_IRQn 1 */
-  /* USER CODE END USART1_IRQn 1 */
+	//  HAL_UART_IRQHandler(&huart1);
+	if(__HAL_UART_GET_IT(&huart1,UART_IT_RTO))
+	{
+			__HAL_UART_CLEAR_IT(&huart1,UART_CLEAR_RTOF);
+			
+			/* Disable the DMA */
+			__HAL_DMA_DISABLE(&hdma_uart1_rx);
+		  
+		  /* Derive the receiving data length from the NDTR register */
+			RxLen = DXL_RXBUFFSIZE - __HAL_DMA_GET_COUNTER(&hdma_uart1_rx);
+		
+		  /* Clear DMA TCIF2& HTIF2 flag */
+		  __HAL_DMA_CLEAR_FLAG(&hdma_uart1_rx,DMA_FLAG_TCIF2_6);
+		  
+		  /* Reset the DMA NDTR */
+		  __HAL_DMA_SET_COUNTER(&hdma_uart1_rx,DXL_RXBUFFSIZE);
+		UART1RxLen = RxLen;
+		UART1RxEndFlag = 1; //标志已经成功接收到一包等待处理
+//			for(i = 0;i<RxLen;i++)
+//			{
+//				USB2UART_aTxBuffer0[i] = USB2UART_aRxBuffer0[i];
+//			}
+//				/* Progress the reveiving data */
+//			  USB2UART_SendData(USB2UART_aTxBuffer0,RxLen);
+			
+		  /* Enable the DMA */
+			__HAL_DMA_ENABLE(&hdma_uart1_rx);
+			
+	}
 }
 
 /**
@@ -299,6 +330,7 @@ void UART4_IRQHandler(void)
 {
 		u32 RxLen;
 	  volatile u32 a = 0;
+	u8 i = 0;
 
 //  HAL_UART_IRQHandler(&huart4);
 		if(__HAL_UART_GET_IT(&huart4,UART_IT_RTO))
@@ -316,9 +348,14 @@ void UART4_IRQHandler(void)
 			  
 			  /* Reset the DMA NDTR */
 			  __HAL_DMA_SET_COUNTER(&hdma_uart4_rx,USB2UART_RXBUFFSIZE);
-				
-				/* Progress the reveiving data */
-			  USB2UART_SendData(USB2UART_aRxBuffer0,RxLen);
+			UART4RxLen = RxLen;
+			UART4RxEndFlag = 1; //标志已经成功接收到一包等待处理
+//			for(i = 0;i<RxLen;i++)
+//			{
+//				USB2UART_aTxBuffer0[i] = USB2UART_aRxBuffer0[i];
+//			}
+//				/* Progress the reveiving data */
+//			  USB2UART_SendData(USB2UART_aTxBuffer0,RxLen);
 				
 			  /* Enable the DMA */
 				__HAL_DMA_ENABLE(&hdma_uart4_rx);

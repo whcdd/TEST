@@ -1,7 +1,11 @@
 .\test\mti_630.o: Drive\IMU\MTi_630.c
 .\test\mti_630.o: Drive\IMU\MTi_630.h
 .\test\mti_630.o: .\Drive\config\config.h
+<<<<<<< HEAD
 .\test\mti_630.o: D:\KEIL5\ARM\ARMCC\Bin\..\include\stdint.h
+=======
+.\test\mti_630.o: F:\software\keil\ARM\ARMCC\Bin\..\include\stdint.h
+>>>>>>> pr/1
 .\test\mti_630.o: ../Inc/main.h
 .\test\mti_630.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h
 .\test\mti_630.o: ../Inc/stm32f7xx_hal_conf.h
@@ -17,7 +21,11 @@
 .\test\mti_630.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h
 .\test\mti_630.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h
 .\test\mti_630.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
+<<<<<<< HEAD
 .\test\mti_630.o: D:\KEIL5\ARM\ARMCC\Bin\..\include\stddef.h
+=======
+.\test\mti_630.o: F:\software\keil\ARM\ARMCC\Bin\..\include\stddef.h
+>>>>>>> pr/1
 .\test\mti_630.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc_ex.h
 .\test\mti_630.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_exti.h
 .\test\mti_630.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_gpio.h
@@ -31,6 +39,10 @@
 .\test\mti_630.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_fmc.h
 .\test\mti_630.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h
 .\test\mti_630.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h
+<<<<<<< HEAD
+=======
+.\test\mti_630.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_iwdg.h
+>>>>>>> pr/1
 .\test\mti_630.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h
 .\test\mti_630.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h
 .\test\mti_630.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h
@@ -41,8 +53,13 @@
 .\test\mti_630.o: .\Drive\led\led.h
 .\test\mti_630.o: .\Drive\key\key.h
 .\test\mti_630.o: .\Drive\motor\DynamixelMotor.h
+<<<<<<< HEAD
 .\test\mti_630.o: D:\KEIL5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\test\mti_630.o: D:\KEIL5\ARM\ARMCC\Bin\..\include\string.h
+=======
+.\test\mti_630.o: F:\software\keil\ARM\ARMCC\Bin\..\include\stdlib.h
+.\test\mti_630.o: F:\software\keil\ARM\ARMCC\Bin\..\include\string.h
+>>>>>>> pr/1
 .\test\mti_630.o: .\Drive\USB2UART\usb2uart.h
 .\test\mti_630.o: .\Drive\IMU\MTi_630.h
 .\test\mti_630.o: .\Drive\sdram\sdram.h

@@ -5,6 +5,8 @@
 UART_HandleTypeDef huart4;
 u8 USB2UART_aRxBuffer0[USB2UART_RXBUFFSIZE] = {0};
 u8 USB2UART_aRxBuffer1[USB2UART_RXBUFFSIZE1] = {0};
+u8 USB2UART_aTransBuffer[USB2UART_RXBUFFSIZE] = {0};
+u8 USB2UART_aTxBuffer0[USB2UART_RXBUFFSIZE] = {0};
 DMA_HandleTypeDef hdma_uart4_tx;
 DMA_HandleTypeDef hdma_uart4_rx;
 u8 senddataflag;
@@ -16,6 +18,8 @@ u8 senddataflag;
   */
 static void USB2UART_DMA_Init(void);
 static void USB2UART_ReceiverTimeoutInit(void);
+void UART_Transmit(UART_HandleTypeDef huart,u8 *databuf, u8 len);
+
 
 /**
   * @}
@@ -68,7 +72,7 @@ void USB2UART_Init(u32 baud)
   * @param len: the size of the buffer
   * @retval None
   */
-void USB2UART_SendData(u8 *databuf, u32 len)
+void USB2UART_SendData(u8 *databuf, u8 len)
 {
 	  /* Transmit the data */
 	  UARTSendData(&huart4,databuf,len);
@@ -105,10 +109,10 @@ static void USB2UART_DMA_Init(void)
     __HAL_LINKDMA(&huart4,hdmatx,hdma_uart4_tx);
 		
 //		/* Set Peripheral and buffer address */
-//		HAL_DMA_Start(&hdma_uart4_tx,(u32)USB2UART_aRxBuffer0,(u32)&huart4.Instance->TDR,USB2UART_RXBUFFSIZE);
+//		HAL_DMA_Start(&hdma_uart4_tx,(u32)USB2UART_aTxBuffer0,(u32)&huart4.Instance->TDR,USB2UART_RXBUFFSIZE);
 		
 		    /* USART2_RX Init */
-		// 使用单缓冲区
+		// 使用双缓冲区
     hdma_uart4_rx.Instance = DMA1_Stream2;
     hdma_uart4_rx.Init.Channel = DMA_CHANNEL_4;
     hdma_uart4_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
@@ -157,3 +161,4 @@ static void USB2UART_ReceiverTimeoutInit(void)
 		/* Enable receive timeout interrupt */
 		__HAL_UART_ENABLE_IT(&huart4,UART_IT_RTO);
 }
+

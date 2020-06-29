@@ -19,14 +19,16 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
-#include "config.h"
 #include "main.h"
 #include "clock_init.h"
 #include "led.h"
 #include "debug_uart5.h"
 #include "key.h"
 #include "usb2uart.h"
-
+#include "stm32f7xx_it.h"
+#include "commandProcess.h"
+#include "dataFrame.h"
+#include "dataFrame.h"
 /**
   * @brief  The application entry point.
   * @retval int
@@ -39,37 +41,34 @@
 
 int main(void)
 {
-	u32 i=0;
-	u8 temp=0;
-	u32 ts=0;
-	u8 test[] = "hello";
-	u8 len;
-  /* MCU Configuration--------------------------------------------------------*/
-  CacheEnalble();
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
-  SystemClock_Config();
-  /* Initialize all configured peripherals */
-  LED_Init();
+	//	u8 test[] = "hello";
+	//	u8 len;
+	//	u8 i;
+	//	u8 *p1;
+	//	u8 test1[] = {0xff,0xfd,0x0C,0x00,0x93,0x05,0x02,0x11,0x05,0x12,0x11,0x22,0x33,0x44,0xaa,0xbb};
+	/* MCU Configuration--------------------------------------------------------*/
+	CacheEnalble();
+	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+	HAL_Init();
+	SystemClock_Config();
+	/* Initialize all configured peripherals */
+	LED_Init();
 	SDRAM_FMC_Init();
 	USB2UART_Init(2000000);
+	DXLMotor_Init(2000000);
+
 	/* Note: MTi630 must initialize at last!!! */
 	MTi_630_Init(921600);
-	
-	
-//	for(ts=0;ts<0xf;ts++,temp++)
-//	{
-//		sdramMemory[ts]=temp;
-//	}
+//	IWDG_Init(IWDG_PRESCALER_64,500); 	//分频数为64,重载值为500,溢出时间为1s	
+
   while (1)
   {
-//			USB2UART_SendData(sdramMemory,0xf);
-			USB2UART_SendData(MTi_630_aRxBuffer,MTi_630_RXBUFFSIZE);
-//			HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14|GPIO_PIN_15);
-
-//			HAL_Delay(1000);
+	  Data_Receive();
+	  Data_Send();
   }
 }
+
+
 
 
 
