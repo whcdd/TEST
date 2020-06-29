@@ -35,12 +35,46 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 				usb2uart_flag = 1;
 //		    USB2UART_SendData(test,4);
 //			  USB2UART_SendData("\r\n",2);
-//			  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14|GPIO_PIN_15);
+//			  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14|GPIO_PIN_15);			
+//			  HAL_UART_Receive_IT(&huart4,USB2UART_aRxBuffer,USB2UART_RXBUFFSIZE);
+		}
+		/*  MTi_630 USART2  */
+		if(huart->Instance == USART2)
+		{
+				MTi_630_SendData(test,4);
 			
-			  HAL_UART_Receive_IT(&huart4,USB2UART_aRxBuffer,USB2UART_RXBUFFSIZE);
+			
+		    HAL_UART_Receive_IT(&huart2,MTi_630_aRxBuffer0,MTi_630_RXBUFFSIZE);
+		}
+}
+
+/**
+  * @brief UART Send Data 
+  * @param databuf: the starting address of the buffer memory    
+  * @param len: the size of the buffer
+  * @retval UART_DATA_ERROR=0;UART_SEND_COMPLETE=1
+  */
+u8 UARTSendData(UART_HandleTypeDef *huart,u8 *pDataBuf, u16 len)
+{
+		if((pDataBuf == NULL) || len == 0)
+		{
+				return UART_DATA_ERROR;
 		}
 		
+		huart->TxXferSize = len;
+		huart->TxXferCount = len;
+		
+		while(huart->TxXferCount	>	0)
+		{
+				huart->Instance->TDR = *pDataBuf;
+				while(__HAL_UART_GET_FLAG(huart,UART_FLAG_TXE) != SET);
+			  
+				pDataBuf++;
+			  huart->TxXferCount--;	
+		}
+		return UART_SEND_COMPLETE;
 }
+
 
 
 void CacheEnalble(void)

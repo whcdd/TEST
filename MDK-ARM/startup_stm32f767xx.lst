@@ -965,11 +965,11 @@ ARM Macro Assembler    Page 15
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M7.fp.dp --apcs=
 interwork --depend=.\test\startup_stm32f767xx.d -o.\test\startup_stm32f767xx.o 
--I.\RTE\_TEST -IC:\Users\123\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core
-\Include -IC:\Users\123\AppData\Local\Arm\Packs\Keil\STM32F7xx_DFP\2.12.0\Drive
-rs\CMSIS\Device\ST\STM32F7xx\Include --predefine="__MICROLIB SETA 1" --predefin
-e="__UVISION_VERSION SETA 529" --predefine="_RTE_ SETA 1" --predefine="STM32F76
-7xx SETA 1" --list=startup_stm32f767xx.lst startup_stm32f767xx.s
+-IG:\11\v10_merge\MDK-ARM\RTE -IF:\software\keil\ARM\CMSIS\5.6.0\CMSIS\Core\Inc
+lude -IF:\software\keil\Keil\STM32F7xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F
+7xx\Include --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA
+ 521" --predefine="_RTE_ SETA 1" --predefine="STM32F767xx SETA 1" --list=startu
+p_stm32f767xx.lst startup_stm32f767xx.s
 
 
 

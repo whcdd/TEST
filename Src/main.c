@@ -19,82 +19,56 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
-#include "config.h"
 #include "main.h"
 #include "clock_init.h"
 #include "led.h"
 #include "debug_uart5.h"
 #include "key.h"
 #include "usb2uart.h"
-
+#include "stm32f7xx_it.h"
+#include "commandProcess.h"
+#include "dataFrame.h"
+#include "dataFrame.h"
 /**
   * @brief  The application entry point.
   * @retval int
   */
 
+/* SDRAM Memory */
+// MAX ADDRESS IS 0XC1FF FFFF
+#define SDRAMSIZE 0xffff
+//u8 sdramMemory[SDRAMSIZE] __attribute__((at(0XC0000000)));
 
 int main(void)
 {
-	u8 flag = 0;
-	u8 test[] = "HELLO";
-	DXL_HandlerTypeDef DXL_Handler;
-	u8 torque_en[] = {0x40,0x00,0x01};
-  u8 param1[] = {0x74,0x00,0x00,0x02,0x00,0x00};
-	u8 param2[] = {0x74,0x00,0xF4,0x0F,0x00,0x00};
-  /* MCU Configuration--------------------------------------------------------*/
-  CacheEnalble();
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
-  SystemClock_Config();
-  /* Initialize all configured peripherals */
-//  LED_Init();
-//  Debug_UART5_Init(115200);
-//	KEY_Init();
-//	DXLMotor_Init(1000000);
-	USB2UART_Init(1350000);
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-	
-//		DXL_Handler.id=0;
-//		DXL_Handler.len=3+sizeof(torque_en)/sizeof(u8);	
-//		DXL_Handler.Param=torque_en;
-//		DXL_Handler.Ins=Write;
-//		DXL_ProtocolSendData(&DXL_Handler);
+	//	u8 test[] = "hello";
+	//	u8 len;
+	//	u8 i;
+	//	u8 *p1;
+	//	u8 test1[] = {0xff,0xfd,0x0C,0x00,0x93,0x05,0x02,0x11,0x05,0x12,0x11,0x22,0x33,0x44,0xaa,0xbb};
+	/* MCU Configuration--------------------------------------------------------*/
+	CacheEnalble();
+	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+	HAL_Init();
+	SystemClock_Config();
+	/* Initialize all configured peripherals */
+	LED_Init();
+	SDRAM_FMC_Init();
+	USB2UART_Init(2000000);
+	DXLMotor_Init(2000000);
+
+	/* Note: MTi630 must initialize at last!!! */
+	MTi_630_Init(921600);
+//	IWDG_Init(IWDG_PRESCALER_64,500); 	//分频数为64,重载值为500,溢出时间为1s	
+
   while (1)
   {
-		if(usb2uart_flag)
-		{
-			USB2UART_SendData(USB2UART_aRxBuffer,USB2UART_RXBUFFSIZE);
-			usb2uart_flag = 0;
-		}
-    /* USER CODE END WHILE */
-//		HAL_UART_Transmit(&huart5,test,8,1000);
-//		while(__HAL_UART_GET_FLAG(&huart5,UART_FLAG_TC) != SET);
-//		HAL_UART_Transmit(&huart4,test,5,1000);
-//		while(__HAL_UART_GET_FLAG(&huart4,UART_FLAG_TC) != SET);
-//		HAL_Delay(2000);
-//		DXL_SendData(&test,1);
-//		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_14|GPIO_PIN_15);
-
-//		DXL_Handler.id=0;
-//		if(!flag)
-//		{
-//			DXL_Handler.len=3+sizeof(param1)/sizeof(u8);	
-//			DXL_Handler.Param=param1;
-//		  flag = 1;
-//		}
-//		else
-//		{
-//			DXL_Handler.len=3+sizeof(param2)/sizeof(u8);	
-//			DXL_Handler.Param=param2;
-//		  flag = 0;
-//		}
-//		DXL_Handler.Ins=Write;
-//		DXL_ProtocolSendData(&DXL_Handler);
-    /* USER CODE BEGIN 3 */
+	  Data_Receive();
+	  Data_Send();
   }
-  /* USER CODE END 3 */
 }
+
+
 
 
 

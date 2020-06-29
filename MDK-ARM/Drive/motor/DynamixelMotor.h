@@ -5,10 +5,13 @@
 
 
 /* External variables --------------------------------------------------------*/
-#define DXL_RXBUFFSIZE 1
+#define DXL_RXBUFFSIZE 80
 
 extern UART_HandleTypeDef huart1;
 extern u8 DXL_aRxBuffer[DXL_RXBUFFSIZE];
+extern u8 DXL_aTxBuffer[DXL_RXBUFFSIZE];
+extern DMA_HandleTypeDef hdma_uart1_tx;
+extern DMA_HandleTypeDef hdma_uart1_rx;
 /* Exported types ------------------------------------------------------------*/
 /** 
   * @brief  Instruction definition  
@@ -123,6 +126,9 @@ DXL_StatusTypeDef DXL_ReceiveData(u8 *datades,u8 len);
 
 DXL_StatusTypeDef DXL_ProtocolSendData(DXL_HandlerTypeDef *DXL_Handler);
 DXL_StatusTypeDef DXL_ProtocolReceiveData(DXL_HandlerTypeDef *DXL_Handler);
+static void DXL_ReceiverTimeoutInit(void);
+static void DXL_DMA_Init(void);
+void DXL_UART_Transmit(u8 *databuf, u8 len);
 
 
 #endif 

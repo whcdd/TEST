@@ -12,10 +12,22 @@
 #include <stdlib.h>
 #include <string.h>
 #include "usb2uart.h"
+#include "MTi_630.h"
+#include "sdram.h"
 
+/** 
+  * @brief  HAL Status structures definition  
+  */  
+typedef enum 
+{
+  UART_DATA_ERROR       = 0,
+	UART_SEND_COMPLETE		= 1
+} UART_sendStatusTypeDef;
 
 extern u8 usb2uart_flag;
 
+
+u8 UARTSendData(UART_HandleTypeDef *huart,u8 *pDataBuf, u16 len);
 
 void Error_Handler(void);
 void assert_failed(uint8_t *file, uint32_t line);
